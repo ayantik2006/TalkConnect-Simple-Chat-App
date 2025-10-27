@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-800 flex flex-col items-center gap-5">
       <h1 className="text-white font-bold text-[3rem] mt-">TalkConnect</h1>
-      <div className="w-[40rem] h-[30rem] bg-gray-900 border-2 border-gray-400 overflow-auto flex flex-col ">
+      <div className="w-[40rem] max-w-[40rem] mx-3 [@media(max-width:660px)_and_(min-width:500px)]:w-120  [@media(max-width:500px)]:w-[20rem] h-[30rem] bg-gray-900 border-2 border-gray-400 overflow-auto flex flex-col ">
         {messages.map((message, index) => {
           return (
             <div
@@ -47,13 +47,13 @@ function App() {
       </div>
       <div className="flex flex-col gap-3 mb-5">
         <textarea
-          className="border-2 border-white w-[40rem] outline-none p-2 text-white"
+          className="border-2 border-white w-[40rem] [@media(max-width:660px)_and_(min-width:500px)]:w-120  [@media(max-width:500px)]:w-[20rem] outline-none p-2 text-white"
           placeholder="Write your message here"
           ref={messageBox}
           autoFocus
         ></textarea>
         <button
-          className="w-[40rem] bg-green-600 text-[1.2rem] py-1 rounded cursor-pointer hover:bg-green-700 duration-300"
+          className="w-[40rem] [@media(max-width:660px)_and_(min-width:500px)]:w-120  [@media(max-width:500px)]:w-[20rem] bg-green-600 text-[1.2rem] py-1 rounded cursor-pointer hover:bg-green-700 duration-300"
           onClick={() => {
             socket.emit("message", messageBox.current.value);
             messageBox.current.value = "";
